@@ -1,21 +1,11 @@
 package my.aaa;
 
-import java.util.List;
-
-public class UndirectedGraph<T> implements Graph<T>{
-
-    @Override
-    public void addVertex(T vertex) {
-
-    }
-
+public class UndirectedGraph<T> extends DirectedGraph<T>{
     @Override
     public void addEdge(Edge<T> edge) {
+        super.addEdge(edge);
 
-    }
-
-    @Override
-    public List<Edge<T>> getPath(T start, T end) {
-        return null;
+        addVertex(edge.getDest());
+        graph.get(edge.getDest()).add(edge.getSource());
     }
 }
